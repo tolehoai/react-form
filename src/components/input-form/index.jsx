@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import React from 'react';
 import { Button, CardImg, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import * as yup from 'yup';
 
 InputForm.propTypes = {
     
@@ -24,6 +25,12 @@ function InputForm(props) {
                             onSubmit={(values)=>{
                                 console.log(values);
                             }}
+                            validationSchema={yup.object({
+                                firstname: yup
+                                .string()
+                                .required('It not empty')
+                                .max(20,'It too long')
+                            })}
                         >
                             {(
                                 {
@@ -46,10 +53,18 @@ function InputForm(props) {
                                       placeholder="Input firstname" 
                                       autoComplete="off"
                                       onChange = {handleChange}
+                                      onBlur={handleBlur}
                                       value={values.firstname}
                                        />   
+                                    {errors.firstname&&touched.firstname?
+                                    <span>{errors.firstname}</span>:null    
+                                }
+                                      
+                                
                                     </Col>
+                                   
                                 </FormGroup>
+                                
     
     
                                 <FormGroup row>
