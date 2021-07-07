@@ -1,50 +1,63 @@
-import { Formik } from 'formik';
-import React from 'react';
-import { Button, CardImg, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
-import * as yup from 'yup';
+import InputField from "components/input-field";
+import { Formik, FastField } from "formik";
+import React from "react";
+import {
+  Button,
+  CardImg,
+  Col,
+  Container,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+} from "reactstrap";
+import * as yup from "yup";
 
-InputForm.propTypes = {
-    
-};
+InputForm.propTypes = {};
 
 function InputForm(props) {
-    return (
-        <div>
-            <h2>Form</h2>
-            <Container>
-                <Row>
-                    <Col xs="6">
-                        <Formik
-                        
-                            initialValues={{
-                                firstname: '',
-                                lastname: '',
-                                password: '',
-                                repassword: '',
-                            }}
-                            onSubmit={(values)=>{
-                                console.log(values);
-                            }}
-                            validationSchema={yup.object({
-                                firstname: yup
-                                .string()
-                                .required('It not empty')
-                                .max(20,'It too long')
-                            })}
-                        >
-                            {(
-                                {
-                                    values,
-                                    errors,
-                                    touched,
-                                    handleChange,
-                                    handleBlur,
-                                    handleSubmit,
-                                    isSubmitting,
-                                }
-                            )=>(
-                                <Form onSubmit={handleSubmit}>
-                                <FormGroup row>
+  return (
+    <div>
+      <h2>Form</h2>
+      <Container>
+        <Row>
+          <Col xs="6">
+            <Formik
+              initialValues={{
+                firstname: "",
+                lastname: "",
+                password: "",
+                repassword: "",
+              }}
+              onSubmit={(values) => {
+                console.log(values);
+              }}
+              validationSchema={yup.object({
+                firstname: yup
+                  .string()
+                  .required("It not empty")
+                  .max(20, "It too long"),
+              })}
+            >
+              {({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+              }) => (
+                <Form onSubmit={handleSubmit}>
+                  <FastField
+                    name="firstname"
+                    component={InputField}
+                    label="Firstname"
+                    placeholder="Input firstname"
+                  />
+
+                  {/* <FormGroup row>
                                     <Label sm={2}>Firstname</Label>
                                     <Col sm={10}>
                                      <Input type="text"
@@ -112,18 +125,23 @@ function InputForm(props) {
                                     <Col sm={{ size: 10, offset: 2 }}>
                                     <Button color="success" type="submit">Sign up</Button>{' '}
                                     </Col>
-                                </FormGroup>
-                            </Form>
-                            )}
-                        </Formik>
-                    </Col>
-                    <Col xs="6">
-                    <CardImg top width="100%" src="https://pathwayport.com/saasland/images/login@4x.png" alt="Card image cap" />
-                    </Col>
-                </Row>
-            </Container>
-        </div>
-    );
+                                </FormGroup> */}
+                </Form>
+              )}
+            </Formik>
+          </Col>
+          <Col xs="6">
+            <CardImg
+              top
+              width="100%"
+              src="https://pathwayport.com/saasland/images/login@4x.png"
+              alt="Card image cap"
+            />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 }
 
 export default InputForm;
