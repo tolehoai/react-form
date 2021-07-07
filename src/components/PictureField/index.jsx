@@ -59,7 +59,7 @@ function PictureField(props) {
           </Button>{" "}
         </Col>
         <Col>
-          <img src={field.value} alt="abc" />
+          <img src={field.value} alt="Opps... hình này không có, bấm lại đi" />
         </Col>
       </FormGroup>
     </div>
