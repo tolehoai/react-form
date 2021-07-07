@@ -10,6 +10,7 @@ import {
   Button,
 } from "reactstrap";
 import Select from "react-select";
+import style from "../PictureField/style.css";
 
 PictureField.propTypes = {
   field: PropTypes.object,
@@ -51,7 +52,7 @@ function PictureField(props) {
         <Col sm={10}>
           <Button
             color="primary"
-            type="submit"
+            type="button"
             {...field}
             onClick={handleClickRandom}
           >
@@ -59,7 +60,15 @@ function PictureField(props) {
           </Button>{" "}
         </Col>
         <Col>
-          <img src={field.value} alt="Opps... hình này không có, bấm lại đi" />
+          <img
+            src={
+              field.value
+                ? field.value
+                : "https://scontent-sin6-2.xx.fbcdn.net/v/t1.6435-9/118597573_1538628569635553_2248402875902150998_n.jpg?_nc_cat=102&_nc_rgb565=1&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=FW9UGfCDfY0AX8cL41L&_nc_ht=scontent-sin6-2.xx&oh=40b053b8cea0e7fe127db7d0d0b1c59e&oe=60E9E868"
+            }
+            className="img"
+            alt="Opps... hình này không có, bấm lại đi"
+          />
         </Col>
       </FormGroup>
     </div>

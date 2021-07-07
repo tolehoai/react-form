@@ -9,9 +9,9 @@ Form1.propTypes = {};
 
 function Form1(props) {
   const options = [
-    { value: "foo", label: "Foo" },
-    { value: "bar", label: "Bar" },
-    { value: "baz", label: "Baz" },
+    { value: "dev", label: "Developer" },
+    { value: "designer", label: "Designer" },
+    { value: "tester", label: "Tester" },
   ];
 
   return (
@@ -19,7 +19,7 @@ function Form1(props) {
       <Formik
         initialValues={{ firstname: "", job: null, picture: null }}
         onSubmit={(values, actions) => {
-          // alert(JSON.stringify(values, null, 2));
+          alert(JSON.stringify(values, null, 2));
           console.log(values);
         }}
       >
@@ -39,7 +39,7 @@ function Form1(props) {
               <FastField
                 name="job"
                 component={SelectField}
-                label="Firstname"
+                label="Job"
                 placeholder="Input firstname"
                 options={options}
               />
