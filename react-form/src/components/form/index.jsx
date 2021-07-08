@@ -46,7 +46,7 @@ function Form1(props) {
               <FastField
                 name="picture"
                 component={PictureField}
-                label="Picture here"
+                label="Picture here abc
               />
               <FormGroup check row>
                 <Col sm={{ size: 10, offset: 2 }}>
