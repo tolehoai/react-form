@@ -34,7 +34,7 @@ function Form1(props) {
                 name="firstname"
                 component={CustomField}
                 label="Firstname"
-                placeholder="Input firstname"
+                placeholder="Input firstname macos"
               />
               <FastField
                 name="job"
